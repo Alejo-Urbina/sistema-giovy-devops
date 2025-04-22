@@ -7,16 +7,41 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  test-usuarios:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
       - name: Configurar JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
-      
-      - name: Ejecutar pruebas
-        run: mvn test
+      - name: Ejecutar pruebas usuarios
+        working-directory: usuarios-servicio
+        run: ./gradlew test
+
+  test-asignaturas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Ejecutar pruebas asignaturas
+        working-directory: asignaturas-servicio
+        run: ./gradlew test
+
+  test-matriculas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Ejecutar pruebas matriculas
+        working-directory: matriculas-servicio
+        run: ./gradlew test
