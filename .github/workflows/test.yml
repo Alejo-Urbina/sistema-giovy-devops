@@ -9,6 +9,9 @@ on:
 jobs:
   test-usuarios:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: usuarios-servicio
     steps:
       - uses: actions/checkout@v3
       - name: Configurar JDK 17
@@ -17,11 +20,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Ejecutar pruebas usuarios
-        working-directory: usuarios-servicio
         run: ./gradlew test
 
   test-asignaturas:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: asignaturas-servicio
     steps:
       - uses: actions/checkout@v3
       - name: Configurar JDK 17
@@ -30,11 +35,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Ejecutar pruebas asignaturas
-        working-directory: asignaturas-servicio
         run: ./gradlew test
 
   test-matriculas:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: matriculas-servicio
     steps:
       - uses: actions/checkout@v3
       - name: Configurar JDK 17
@@ -43,5 +50,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Ejecutar pruebas matriculas
-        working-directory: matriculas-servicio
         run: ./gradlew test
