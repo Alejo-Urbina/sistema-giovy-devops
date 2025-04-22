@@ -19,4 +19,4 @@ jobs:
           distribution: 'temurin'
       
       - name: Ejecutar pruebas
-        run: ./mvnw test
+        run: mvn test
