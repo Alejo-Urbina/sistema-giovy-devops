@@ -19,7 +19,7 @@ public class MatriculaRepositorioImpl implements MatriculaRepositorio {
     private final String ESTADO_ACTIVA = "ACTIVA";
 
     @PersistenceContext
-    private EntityManager em;
+    public EntityManager em;
 
     @Override
     @Transactional
