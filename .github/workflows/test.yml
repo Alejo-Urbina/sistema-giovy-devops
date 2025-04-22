@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: usuarios-servicio
+        working-directory: usuario-servicio
     steps:
       - uses: actions/checkout@v3
       - name: Configurar JDK 17
@@ -19,6 +19,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Dar permisos a gradlew
+        run: chmod +x ./gradlew
       - name: Ejecutar pruebas usuarios
         run: ./gradlew test
 
@@ -34,6 +36,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Dar permisos a gradlew
+        run: chmod +x ./gradlew
       - name: Ejecutar pruebas asignaturas
         run: ./gradlew test
 
@@ -49,5 +53,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Dar permisos a gradlew
+        run: chmod +x ./gradlew
       - name: Ejecutar pruebas matriculas
         run: ./gradlew test
