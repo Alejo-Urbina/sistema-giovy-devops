@@ -1,0 +1,21 @@
+services:
+  usuarios-servicio:
+    build: ./usuario-servicio
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+
+  asignaturas-servicio:
+    build: ./asignaturas-servicio
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+
+  matriculas-servicio:
+    build: ./matriculas-servicio
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
